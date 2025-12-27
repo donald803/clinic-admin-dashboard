@@ -1,24 +1,30 @@
-export enum TaskStatus {
-  Pending = 'Pending',
-  InProgress = 'InProgress',
-  Completed = 'Completed',
-  Cancelled = 'Cancelled',
-}
+export const TaskStatus = {
+  Pending: 'Pending',
+  InProgress: 'InProgress',
+  Completed: 'Completed',
+  Cancelled: 'Cancelled',
+} as const;
 
-export enum TaskPriority {
-  Low = 'Low',
-  Medium = 'Medium',
-  High = 'High',
-  Urgent = 'Urgent',
-}
+export type TaskStatus = typeof TaskStatus[keyof typeof TaskStatus];
 
-export enum AppointmentStatus {
-  Pending = 'Pending',
-  Approved = 'Approved',
-  Rejected = 'Rejected',
-  Completed = 'Completed',
-  Cancelled = 'Cancelled',
-}
+export const TaskPriority = {
+  Low: 'Low',
+  Medium: 'Medium',
+  High: 'High',
+  Urgent: 'Urgent',
+} as const;
+
+export type TaskPriority = typeof TaskPriority[keyof typeof TaskPriority];
+
+export const AppointmentStatus = {
+  Pending: 'Pending',
+  Approved: 'Approved',
+  Rejected: 'Rejected',
+  Completed: 'Completed',
+  Cancelled: 'Cancelled',
+} as const;
+
+export type AppointmentStatus = typeof AppointmentStatus[keyof typeof AppointmentStatus];
 
 export interface TaskItem {
   id: number;
